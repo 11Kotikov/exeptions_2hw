@@ -1,4 +1,5 @@
 package org.example;
+import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -7,12 +8,27 @@ public class Main {
 //        Реализуйте метод, который запрашивает у пользователя ввод дробного числа (типа float),
 //        и возвращает введенное значение. Ввод текста вместо числа не должно приводить к падению приложения,
 //        вместо этого, необходимо повторно запросить у пользователя ввод данных.
-        giveMeMyFloatBack(); // - вот он;
-        fixMyCode1(); // - задача 1 на ревью - проинициализирован массив
-        fixMyCode2(); // - задача 2 на ревью
+        // giveMeMyFloatBack(); // - вот он;
+       // fixMyCode1(); // - задача 1 на ревью - проинициализирован массив
+       // fixMyCode2(); // - задача 2 на ревью
         // Здесь необходимо изменить иерархию "вылова" ошибок
         // в методе printSum необходимо заменить throws FileNotFoundException на IllegalArgumentException
+    checkYourStringForVoid();// - проверка на пустую строку и выброс ошибки
     }
+
+    private static void checkYourStringForVoid() {
+        System.out.print("Type yor string here: ");
+        try (Scanner input = new Scanner(System.in)) {
+            String str = input.nextLine();
+                if (str.isEmpty()) {
+                    throw new Exception("It can't be void string!");
+                } else {
+                    System.out.println(str);
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());;
+            }
+        }
 
     private static void fixMyCode2() {
         try {
